@@ -7,6 +7,7 @@ window.myGame = window.myGame || {};
     this.speed = 96;
     Phaser.Sprite.call(this, game, x, y, 'player', 1);
     game.physics.arcade.enable(this);
+    this.body.setSize(10, 10, 3, 3);
     this.body.collideWorldBounds = true;
   };
 
