@@ -45,12 +45,12 @@ window.myGame = window.myGame || {};
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
-    player = new myGame.Player(game);
-    player.maxHealth = 5;
-    player.health = 3.5
     sword = new myGame.Sword(game);
+    player = new myGame.Player(game, sword);
     playerGroup.add(player);
     playerGroup.add(sword);
+    player.maxHealth = 5;
+    player.health = 3.5
 
     // this dirty hack of avoiding game.world.setBounds(), to avoid moving the camera, may bite us long term
     game.world.bounds.setTo(0, 48, 256, 192);
@@ -76,7 +76,7 @@ window.myGame = window.myGame || {};
     player.updateMovement(cursors);
     // when button pressed, show sword
     if (swordButton.downDuration(300)){
-      sword.swingSword(player);
+      player.swingSword();
     }
     game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
   }
