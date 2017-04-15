@@ -1,3 +1,8 @@
 body {
     margin: 0;
 }
+
+/* Hide the un-scaled game canvas */
+#game {
+    display: none;
+}
