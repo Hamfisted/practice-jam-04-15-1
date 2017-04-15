@@ -8,6 +8,7 @@ window.myGame = window.myGame || {};
   var cursors;
   var player;
   var sword;
+  var enemyGroup;
 
   function init() {
     //  Hide the un-scaled game canvas
@@ -47,18 +48,14 @@ window.myGame = window.myGame || {};
     playerGroup.add(player);
     sword = new myGame.Sword(game);
     playerGroup.add(sword);
-    var enemyGroup = game.add.group();
+
+    player.body.onWorldBounds = new Phaser.Signal();
+    player.body.onWorldBounds.add(hitWorldBounds, this);
+
+    enemyGroup = game.add.group();
     octorok = new myGame.Octorok(game);
     enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
-
-    // add entities to physics engine.
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.arcade.enable(player);
-    // player collide
-    player.body.collideWorldBounds = true;
-    player.body.onWorldBounds = new Phaser.Signal();
-    player.body.onWorldBounds.add(hitWorldBounds, this);
     myGame.Hud.display(game);
   }
 
@@ -69,6 +66,13 @@ window.myGame = window.myGame || {};
 
   function update() {
     player.updateMovement(cursors);
+    game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
+  }
+
+  function enemyCollisionHandler (player, enemy) {
+    // TODO (greg): make this decrement our health
+    console.log("OW");
+    enemy.kill();
   }
 
   function render() {
