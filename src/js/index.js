@@ -85,6 +85,7 @@ window.myGame = window.myGame || {};
     }
     game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
     game.physics.arcade.collide(player, worldMap.getGroundLayer());
+    game.physics.arcade.collide(enemyGroup, worldMap.getGroundLayer());
   }
 
   function enemyCollisionHandler (player, enemy) {
