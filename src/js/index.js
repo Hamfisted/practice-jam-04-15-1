@@ -12,6 +12,7 @@ window.myGame = window.myGame || {};
   var sword;
   var enemyGroup;
   var swordButton;
+  var heartRender;
 
   function init() {
     //  Hide the un-scaled game canvas
@@ -70,6 +71,8 @@ window.myGame = window.myGame || {};
     cursors = game.input.keyboard.createCursorKeys();
     swordButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
+
+    heartRender = myGame.Hud.initializeHud(game, player)
   }
 
   function hitWorldBounds(sprite) {
@@ -100,6 +103,6 @@ window.myGame = window.myGame || {};
   function render() {
     //  Every loop we need to render the un-scaled game canvas to the displayed scaled canvas:
     pixel.context.drawImage(game.canvas, 0, 0, game.width, game.height, 0, 0, pixel.width, pixel.height);
-    // myGame.Hud.display(game, player);
+    heartRender.drawHearts(player);
   }
 })(window.Phaser, window.myGame);
