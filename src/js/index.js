@@ -2,7 +2,7 @@ window.myGame = window.myGame || {};
 
 (function(Phaser, myGame) {
   var game = new Phaser.Game(256, 240, Phaser.CANVAS, '', { init: init, preload: preload, create: create, update: update, render: render });
-  var pixel = { scale: 4, canvas: null, context: null, width: 0, height: 0 }
+  var pixel = { scale: 3, canvas: null, context: null, width: 0, height: 0 };
 
   var tileMapper;
   var cursors;
