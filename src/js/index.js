@@ -46,9 +46,10 @@ window.myGame = window.myGame || {};
   }
 
   function create() {
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     worldMap = new myGame.WorldMap(game, 'zelda_tileset', 'tiles', 'tilemap');
     myGame.Hud.display(game);
-    game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
     player.maxHealth = 5;
@@ -84,6 +85,7 @@ window.myGame = window.myGame || {};
       sword.swingSword(player);
     }
     game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
+    game.physics.arcade.collide(player, worldMap.getGroundLayer());
   }
 
   function enemyCollisionHandler (player, enemy) {

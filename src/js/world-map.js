@@ -6,10 +6,14 @@ window.myGame = window.myGame || {};
     this.map.addTilesetImage(tileset, tiles);
     this.backgroundlayer = this.map.createLayer('BackgroundLayer');
     this.groundLayer = this.map.createLayer('GroundLayer');
-    this.map.setCollisionBetween(1, 100, true, 'GroundLayer');
+    this.map.setCollisionByExclusion([], true, 'GroundLayer');
     //Change the world size to match the size of this layer
     this.groundLayer.resizeWorld();
   };
+
+  WorldMap.prototype.getGroundLayer = function(){
+    return this.groundLayer;
+  }
 
   WorldMap.prototype.constructor = WorldMap;
 
