@@ -1,14 +1,22 @@
-const { width, height }  = SCALE.calculageWindowDimensions(256, 240);
+window.myGame = window.myGame || {};
 
-var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
-function preload() {
-}
+(function(Phaser, myGame) {
+  var game = new Phaser.Game(256, 240, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+  var tileMapper;
 
-function create() {
-}
+  function preload() {
+    // debugger
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+  }
 
-function update() {
-}
+  function create() {
+    const TileMapper = myGame.TileMapper.TileMapper();
+    TileMapper.bar()
+  }
 
-function render() {
-}
+  function update() {
+  }
+
+  function render() {
+  }
+})(window.Phaser, window.myGame);
