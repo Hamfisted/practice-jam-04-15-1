@@ -47,9 +47,8 @@ window.myGame = window.myGame || {};
 
   function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
-
     worldMap = new myGame.WorldMap(game, 'zelda_tileset', 'tiles', 'tilemap');
-    myGame.Hud.display(game);
+    
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
     player.maxHealth = 5;
