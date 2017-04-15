@@ -41,6 +41,7 @@ window.myGame = window.myGame || {};
   function create() {
     tileMapper = myGame.TileMapper.TileMapper();
     tileMapper.bar()
+    myGame.Hud.display(game);
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
@@ -49,6 +50,10 @@ window.myGame = window.myGame || {};
     sword = new myGame.Sword(game);
     playerGroup.add(sword);
 
+    // this dirty hack of avoiding game.world.setBounds(), to avoid moving the camera, may bite us long term
+    game.world.bounds.setTo(0, 48, 256, 192);
+    this.game.physics.setBoundsToWorld();
+
     player.body.onWorldBounds = new Phaser.Signal();
     player.body.onWorldBounds.add(hitWorldBounds, this);
 
@@ -56,7 +61,6 @@ window.myGame = window.myGame || {};
     octorok = new myGame.Octorok(game);
     enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
-    myGame.Hud.display(game);
   }
 
   function hitWorldBounds(sprite) {
