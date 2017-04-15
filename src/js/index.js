@@ -1,7 +1,7 @@
 window.myGame = window.myGame || {};
 
 (function(Phaser, myGame) {
-    const { width, height }  = SCALE.calculageWindowDimensions(256, 240);
+    const { width, height }  = SCALE.calculateWindowDimensions(256, 240);
     var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
     var tileMapper;
 

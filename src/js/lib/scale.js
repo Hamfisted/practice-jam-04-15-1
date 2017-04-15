@@ -1,4 +1,4 @@
-function calculageWindowDimensions(width, height) {
+function calculateWindowDimensions(width, height) {
   const xScale = window.innerWidth / width;
   const yScale = window.innerHeight / height;
   const scale = (xScale < yScale) ? xScale : yScale;
@@ -6,5 +6,5 @@ function calculageWindowDimensions(width, height) {
 }
 
 var SCALE = {
-  calculageWindowDimensions: calculageWindowDimensions
+  calculateWindowDimensions: calculateWindowDimensions
 };
