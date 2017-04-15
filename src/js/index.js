@@ -1,5 +1,6 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+const { width, height }  = SCALE.calculageWindowDimensions(256, 240);
 
+var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 function preload() {
 }
 
