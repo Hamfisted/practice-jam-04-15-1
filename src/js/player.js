@@ -5,7 +5,7 @@ window.myGame = window.myGame || {};
     var x = 100;
     var y = 100;
     this.speed = 96;
-    Phaser.Sprite.call(this, game, x, y, 'player', 28);
+    Phaser.Sprite.call(this, game, x, y, 'player', 1);
     game.physics.arcade.enable(this);
     this.body.collideWorldBounds = true;
   };
@@ -19,14 +19,18 @@ window.myGame = window.myGame || {};
 
     if (cursors.left.isDown) {
         this.body.velocity.x = -this.speed;
+        this.frame = 1;
     } else if (cursors.right.isDown) {
         this.body.velocity.x = this.speed;
+        this.frame = 3;
     }
 
     if (cursors.up.isDown) {
         this.body.velocity.y = -this.speed;
+        this.frame = 2;
     } else if (cursors.down.isDown) {
         this.body.velocity.y = this.speed;
+        this.frame = 0;
     }
   };
 
