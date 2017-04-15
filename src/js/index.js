@@ -7,23 +7,24 @@ window.myGame = window.myGame || {};
   var tileMapper;
   var cursors;
   var player;
+  var sword;
 
   function init() {
     //  Hide the un-scaled game canvas
     game.canvas.style['display'] = 'none';
-    
+
     //  Create our scaled canvas. It will be the size of the game * whatever scale value you've set
     pixel.canvas = Phaser.Canvas.create(game, game.width * pixel.scale, game.height * pixel.scale);
- 
+
     //  Store a reference to the Canvas Context
     pixel.context = pixel.canvas.getContext('2d');
- 
+
     //  Add the scaled canvas to the DOM
     Phaser.Canvas.addToDOM(pixel.canvas);
- 
+
     //  Disable smoothing on the scaled canvas
     Phaser.Canvas.setSmoothingEnabled(pixel.context, false);
- 
+
     //  Cache the width/height to avoid looking it up every render
     pixel.width = pixel.canvas.width;
     pixel.height = pixel.canvas.height;
@@ -33,6 +34,7 @@ window.myGame = window.myGame || {};
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.spritesheet('player', 'assets/sprites/MC_Link.gif', 16, 16);
     game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
+    game.load.image('sword', 'assets/sprites/sword.png')
   }
 
   function create() {
@@ -43,6 +45,8 @@ window.myGame = window.myGame || {};
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
     playerGroup.add(player);
+    sword = new myGame.Sword(game);
+    playerGroup.add(sword);
     var enemyGroup = game.add.group();
     octorok = new myGame.Octorok(game);
     enemyGroup.add(octorok);
