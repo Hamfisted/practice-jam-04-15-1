@@ -30,7 +30,6 @@ window.myGame = window.myGame || {};
   }
 
   function preload() {
-    // debugger
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.spritesheet('player', 'assets/sprites/MC_Link.gif', 16, 16);
     game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
@@ -42,7 +41,7 @@ window.myGame = window.myGame || {};
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
-    player = new Player(game);
+    player = new myGame.Player(game);
     playerGroup.add(player);
     var enemyGroup = game.add.group();
     octorok = new myGame.Octorok(game);
@@ -56,6 +55,7 @@ window.myGame = window.myGame || {};
     player.body.collideWorldBounds = true;
     player.body.onWorldBounds = new Phaser.Signal();
     player.body.onWorldBounds.add(hitWorldBounds, this);
+    myGame.Hud.display(game);
   }
 
   function hitWorldBounds(sprite) {
