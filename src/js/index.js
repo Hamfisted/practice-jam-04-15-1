@@ -9,7 +9,8 @@ window.myGame = window.myGame || {};
   function preload() {
     // debugger
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-    game.load.spritesheet('player', 'assets/sprites/MC_Link.gif', 16, 16)
+    game.load.spritesheet('player', 'assets/sprites/MC_Link.gif', 16, 16);
+    game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
   }
 
   function create() {
@@ -18,6 +19,9 @@ window.myGame = window.myGame || {};
     var playerGroup = game.add.group();
     player = new Player(game);
     playerGroup.add(player);
+    var enemyGroup = game.add.group();
+    octorok = new myGame.Octorok(game);
+    enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
 
     // add entities to physics engine.
