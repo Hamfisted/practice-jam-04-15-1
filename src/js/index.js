@@ -46,8 +46,8 @@ window.myGame = window.myGame || {};
   }
 
   function create() {
-    myGame.Hud.display(game);
     worldMap = new myGame.WorldMap(game, 'zelda_tileset', 'tiles', 'tilemap');
+    myGame.Hud.display(game);
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
