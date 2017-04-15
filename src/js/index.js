@@ -15,11 +15,23 @@ window.myGame = window.myGame || {};
   function create() {
     const TileMapper = myGame.TileMapper.TileMapper();
     TileMapper.bar()
-    game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
     player = new Player(game);
     playerGroup.add(player);
     cursors = game.input.keyboard.createCursorKeys();
+
+    // add entities to physics engine.
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.arcade.enable(player);
+    // player collide
+    player.body.collideWorldBounds = true;
+    player.body.onWorldBounds = new Phaser.Signal();
+    player.body.onWorldBounds.add(hitWorldBounds, this);
+  }
+
+  function hitWorldBounds(sprite) {
+    // logic for player hitting edge of screen here.
+    // TODO: screen transition
   }
 
   function update() {
