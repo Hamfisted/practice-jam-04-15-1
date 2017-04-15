@@ -8,7 +8,7 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
     graphics.beginFill(0x0000FF);
 
     // draw a shape
-    graphics.moveTo(0,0);
+    graphics.moveTo(-48,0);
     graphics.lineTo(256, 0);
     graphics.lineTo(256, 48);
     graphics.lineTo(0, 48);
