@@ -1,14 +1,21 @@
-const { width, height }  = SCALE.calculageWindowDimensions(256, 240);
+window.myGame = window.myGame || {};
 
-var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
-function preload() {
-}
+(function(Phaser, myGame) {
+    const { width, height }  = SCALE.calculageWindowDimensions(256, 240);
+    var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+    var tileMapper;
 
-function create() {
-}
+    function preload() {
+    }
 
-function update() {
-}
+    function create() {
+        tileMapper = new myGame.TileMapper(game);
+        tileMapper.foo();
+    }
 
-function render() {
-}
+    function update() {
+    }
+
+    function render() {
+    }
+})(window.Phaser, window.myGame);
