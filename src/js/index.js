@@ -48,7 +48,7 @@ window.myGame = window.myGame || {};
   function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     worldMap = new myGame.WorldMap(game, 'zelda_tileset', 'tiles', 'tilemap');
-    
+
     var playerGroup = game.add.group();
     sword = new myGame.Sword(game);
     player = new myGame.Player(game, sword);
@@ -100,6 +100,6 @@ window.myGame = window.myGame || {};
   function render() {
     //  Every loop we need to render the un-scaled game canvas to the displayed scaled canvas:
     pixel.context.drawImage(game.canvas, 0, 0, game.width, game.height, 0, 0, pixel.width, pixel.height);
-    myGame.Hud.display(game, player);
+    // myGame.Hud.display(game, player);
   }
 })(window.Phaser, window.myGame);
