@@ -9,26 +9,20 @@ Player = function(game) {
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
-Player.prototype.updateMovement = function(cursors){
+Player.prototype.updateMovement = function(cursors) {
 
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
 
-    if (cursors.left.isDown)
-    {
+    if (cursors.left.isDown) {
         this.body.velocity.x = -this.speed;
-    }
-    else if (cursors.right.isDown)
-    {
+    } else if (cursors.right.isDown) {
         this.body.velocity.x = this.speed;
     }
 
-    if (cursors.up.isDown)
-    {
+    if (cursors.up.isDown) {
         this.body.velocity.y = -this.speed;
-    }
-    else if (cursors.down.isDown)
-    {
+    } else if (cursors.down.isDown) {
         this.body.velocity.y = this.speed;
     }
 
