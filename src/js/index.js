@@ -4,7 +4,9 @@ window.myGame = window.myGame || {};
   var game = new Phaser.Game(256, 240, Phaser.CANVAS, '', { init: init, preload: preload, create: create, update: update, render: render });
   var pixel = { scale: 3, canvas: null, context: null, width: 0, height: 0 };
 
-  var tileMapper;
+  // World
+  var worldMap;
+
   var cursors;
   var player;
   var sword;
@@ -37,13 +39,16 @@ window.myGame = window.myGame || {};
     game.load.spritesheet('player', 'assets/sprites/link.png', 15, 16, -1, 0, 15);
     game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
     game.load.image('sword', 'assets/sprites/sword.png')
+
+    // Tilemaps
+    game.load.tilemap('tilemap', 'assets/tilemaps/maps/level.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('tiles', 'assets/tilemaps/tiles/zelda_tileset.png');
   }
 
   function create() {
-    tileMapper = myGame.TileMapper.TileMapper();
-    tileMapper.bar()
-
     game.physics.startSystem(Phaser.Physics.ARCADE);
+    worldMap = new myGame.WorldMap(game, 'zelda_tileset', 'tiles', 'tilemap');
+    
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
     player.maxHealth = 5;
@@ -79,6 +84,7 @@ window.myGame = window.myGame || {};
       sword.swingSword(player);
     }
     game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
+    game.physics.arcade.collide(player, worldMap.getGroundLayer());
   }
 
   function enemyCollisionHandler (player, enemy) {
