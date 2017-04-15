@@ -1,11 +1,12 @@
 window.myGame = window.myGame || {};
 
 (function(Phaser, myGame) {
-    const { width, height }  = SCALE.calculateWindowDimensions(256, 240);
-    var game = new Phaser.Game(width, height, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
+    var game = new Phaser.Game(256, 240, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
     var tileMapper;
 
     function preload() {
+      // debugger
+      this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     }
 
     function create() {
