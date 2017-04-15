@@ -1,0 +1,14 @@
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+/logs
+*.log
+/tmp
+
+/dist/*
+!/dist/.gitkeep
+
+.sass-cache
+/node_modules
