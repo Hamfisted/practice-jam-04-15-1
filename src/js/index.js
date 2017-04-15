@@ -9,6 +9,7 @@ window.myGame = window.myGame || {};
   var player;
   var sword;
   var enemyGroup;
+  var swordButton;
 
   function init() {
     //  Hide the un-scaled game canvas
@@ -46,8 +47,8 @@ window.myGame = window.myGame || {};
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
-    playerGroup.add(player);
     sword = new myGame.Sword(game);
+    playerGroup.add(player);
     playerGroup.add(sword);
 
     // this dirty hack of avoiding game.world.setBounds(), to avoid moving the camera, may bite us long term
@@ -61,6 +62,7 @@ window.myGame = window.myGame || {};
     octorok = new myGame.Octorok(game);
     enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
+    swordButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   }
 
   function hitWorldBounds(sprite) {
@@ -70,6 +72,10 @@ window.myGame = window.myGame || {};
 
   function update() {
     player.updateMovement(cursors);
+    // when button pressed, show sword
+    if (swordButton.downDuration(300)){
+      sword.swingSword(player);
+    }
     game.physics.arcade.overlap(player, enemyGroup, enemyCollisionHandler, null, this);
   }
 
