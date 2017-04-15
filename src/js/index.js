@@ -9,7 +9,8 @@ window.myGame = window.myGame || {};
     }
 
     function create() {
-      myGame.TileMapper.foo();
+      const Foo = myGame.TileMapper.foo();
+      Foo.bar()
     }
 
     function update() {
