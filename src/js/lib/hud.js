@@ -16,6 +16,7 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
     const fullHeart = game.make.sprite(0,0, 'octorok', 23);
     const emptyHeart = game.make.sprite(0,0, 'octorok', 3);
 
+
     let bmd = game.add.bitmapData(game.width, game.height);
     bmd.addToWorld();
     bmd.smoothed = false;
