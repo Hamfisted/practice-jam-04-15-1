@@ -23,7 +23,7 @@ window.myGame = window.myGame || {};
   }
 
   function update() {
-    player.update_movement(cursors);
+    player.updateMovement(cursors);
   }
 
   function render() {

@@ -9,7 +9,7 @@ Player = function(game) {
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
-Player.prototype.update_movement = function(cursors){
+Player.prototype.updateMovement = function(cursors){
 
     this.body.velocity.x = 0;
     this.body.velocity.y = 0;
