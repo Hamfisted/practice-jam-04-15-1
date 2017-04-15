@@ -9,7 +9,7 @@ window.myGame = window.myGame || {};
     }
 
     function create() {
-        tileMapper = new myGame.TileMapper(game);
+        tileMapper = new myGame.TileMapper();
         tileMapper.foo();
     }
 
