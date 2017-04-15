@@ -82,9 +82,12 @@ window.myGame = window.myGame || {};
   }
 
   function enemyCollisionHandler (player, enemy) {
-    // TODO (greg): make this decrement our health
-    console.log("OW");
-    enemy.kill();
+    player.health -= 0.5;
+    console.log("OW: " + player.health);
+    if (player.health <= 0) {
+      console.log("dead :(");
+      player.kill();
+    }
   }
 
   function render() {
