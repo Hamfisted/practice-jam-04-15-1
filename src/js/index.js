@@ -42,11 +42,12 @@ window.myGame = window.myGame || {};
   function create() {
     tileMapper = myGame.TileMapper.TileMapper();
     tileMapper.bar()
-    myGame.Hud.display(game);
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
     var playerGroup = game.add.group();
     player = new myGame.Player(game);
+    player.maxHealth = 5;
+    player.health = 3.5
     sword = new myGame.Sword(game);
     playerGroup.add(player);
     playerGroup.add(sword);
@@ -63,6 +64,7 @@ window.myGame = window.myGame || {};
     enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
     swordButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    myGame.Hud.display(game, player);
   }
 
   function hitWorldBounds(sprite) {
