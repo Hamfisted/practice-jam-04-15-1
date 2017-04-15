@@ -64,7 +64,7 @@ window.myGame = window.myGame || {};
     enemyGroup.add(octorok);
     cursors = game.input.keyboard.createCursorKeys();
     swordButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    myGame.Hud.display(game, player);
+
   }
 
   function hitWorldBounds(sprite) {
@@ -93,5 +93,6 @@ window.myGame = window.myGame || {};
   function render() {
     //  Every loop we need to render the un-scaled game canvas to the displayed scaled canvas:
     pixel.context.drawImage(game.canvas, 0, 0, game.width, game.height, 0, 0, pixel.width, pixel.height);
+    myGame.Hud.display(game, player);
   }
 })(window.Phaser, window.myGame);
