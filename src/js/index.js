@@ -48,6 +48,7 @@ window.myGame = window.myGame || {};
     player = new myGame.Player(game);
     player.maxHealth = 5;
     player.health = 3.5
+    playerGroup.add(player);
     sword = new myGame.Sword(game);
     playerGroup.add(player);
     playerGroup.add(sword);
