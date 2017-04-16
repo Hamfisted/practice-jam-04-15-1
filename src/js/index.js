@@ -13,6 +13,7 @@ window.myGame = window.myGame || {};
   var enemyGroup;
   var swordButton;
   var heartRender;
+  var overworld;
 
   function init() {
     //  Hide the un-scaled game canvas
@@ -41,6 +42,8 @@ window.myGame = window.myGame || {};
     game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
     game.load.spritesheet('hearts', 'assets/sprites/hearts.png', 7, 7);
     game.load.image('sword', 'assets/sprites/sword.png')
+
+    game.load.audio('overworld', 'assets/audio/02-overworld.mp3');
 
     // Tilemaps
     game.load.tilemap('tilemap', 'assets/tilemaps/maps/level.json', null, Phaser.Tilemap.TILED_JSON);
@@ -74,6 +77,9 @@ window.myGame = window.myGame || {};
 
 
     heartRender = myGame.Hud.initializeHud(game, player)
+    overworld = game.add.audio('overworld');
+
+    overworld.loopFull(0.6);
   }
 
   function hitWorldBounds(sprite) {
