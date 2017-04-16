@@ -14,6 +14,8 @@ window.myGame = window.myGame || {};
     this.body.collideWorldBounds = true;
     this.slash = game.add.audio('slash');
     this.slash.allowMultiple = true;
+    this.maxHealth = 5;
+    this.health = 3.5;
   };
 
   Player.prototype = Object.create(Phaser.Sprite.prototype);

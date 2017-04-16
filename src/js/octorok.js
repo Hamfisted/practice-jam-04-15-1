@@ -14,6 +14,8 @@ window.myGame = window.myGame || {};
     this.xDir = 1;
     this.yDir = 0;
     this.startMoving();
+    this.health = 3;
+    this.maxHealth = 3;
   };
 
   Octorok.prototype = Object.create(Phaser.Sprite.prototype);

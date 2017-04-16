@@ -39,8 +39,6 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
       drawHeartAtOffsets(emptyHeart, Math.ceil(health), maxHealth);
     }
 
-    drawHearts(player);
-
     return { drawHearts };
   }
 
