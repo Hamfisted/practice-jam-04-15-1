@@ -39,6 +39,7 @@ window.myGame = window.myGame || {};
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.load.spritesheet('player', 'assets/sprites/link.png', 15, 16, -1, 0, 15);
     game.load.spritesheet('octorok', 'assets/sprites/octorok.png', 16, 16, -1, 1, 5);
+    game.load.spritesheet('hearts', 'assets/sprites/hearts.png', 7, 7);
     game.load.image('sword', 'assets/sprites/sword.png')
 
     // Tilemaps

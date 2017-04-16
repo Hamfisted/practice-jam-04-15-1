@@ -2,7 +2,7 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
 
 (function(myGame) {
 
-  const heartSize = 16
+  const heartSize = 7
   const heartsLocation = { x: 128, y: 32 };
 
   function initializeHud(game, player) {
@@ -18,9 +18,10 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
     graphics.lineTo(0, 0);
     graphics.endFill();
 
-    const halfHeart = game.make.sprite(0,0, 'octorok', 22);
-    const fullHeart = game.make.sprite(0,0, 'octorok', 23);
-    const emptyHeart = game.make.sprite(0,0, 'octorok', 3);
+    const fullHeart = game.make.sprite(0,0, 'hearts', 0);
+    const halfHeart = game.make.sprite(0,0, 'hearts', 1);
+    const emptyHeart = game.make.sprite(0,0, 'hearts', 2);
+
     let bmd = game.add.bitmapData(game.width, game.height);
     bmd.addToWorld();
     bmd.smoothed = false;
@@ -32,6 +33,7 @@ window.myGame = myGame || {}; // Sets myGame to a blank object if it isn't alrea
     }
 
     function drawHearts({ health, maxHealth }) {
+      bmd.cls();
       drawHeartAtOffsets(fullHeart, 0, Math.floor(health));
       drawHeartAtOffsets(halfHeart, Math.floor(health), Math.ceil(health));
       drawHeartAtOffsets(emptyHeart, Math.ceil(health), maxHealth);
