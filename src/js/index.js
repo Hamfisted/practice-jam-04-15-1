@@ -44,6 +44,7 @@ window.myGame = window.myGame || {};
     game.load.image('sword', 'assets/sprites/sword.png')
 
     game.load.audio('overworld', 'assets/audio/02-overworld.mp3');
+    game.load.audio('slash', 'assets/audio/LOZ_Sword_Slash.wav');
 
     // Tilemaps
     game.load.tilemap('tilemap', 'assets/tilemaps/maps/level.json', null, Phaser.Tilemap.TILED_JSON);

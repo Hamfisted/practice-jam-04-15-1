@@ -12,6 +12,8 @@ window.myGame = window.myGame || {};
     this.sword = sword;
     this.swordSwingDuration = 300;
     this.body.collideWorldBounds = true;
+    this.slash = game.add.audio('slash');
+    this.slash.allowMultiple = true;
   };
 
   Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -47,6 +49,7 @@ window.myGame = window.myGame || {};
     if (this.isSwinging) {
       return
     }
+    this.slash.play();
     this.sword.alpha = 1;
     this.sword.alignIn(this, Phaser.CENTER);
     this.sword.x += 14;
